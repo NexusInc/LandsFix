@@ -1,0 +1,6 @@
+name: LandsFix
+version: '${version}'
+main: ru.landsproject.landsfix.LandsFix
+api-version: '1.19'
+depend:
+  - WorldEdit

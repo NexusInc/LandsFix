@@ -1,0 +1,5 @@
+messages:
+  more-shulkers: "&cУ вас слишком много шалкеров в инвентаре!"
+settings:
+  shulker:
+    limit: 3
