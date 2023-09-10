@@ -3,7 +3,7 @@
     <output-path>$USER_HOME$/Desktop/nexusgrief/plugins</output-path>
     <root id="archive" name="LandsFix.jar">
       <element id="module-output" name="LandsFix.main" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/libs/LandsAPI-1.0-SNAPSHOT-all.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/LandsAPI.jar" path-in-jar="/" />
       <element id="dir-copy" path="$PROJECT_DIR$/src/main/resources" />
     </root>
   </artifact>

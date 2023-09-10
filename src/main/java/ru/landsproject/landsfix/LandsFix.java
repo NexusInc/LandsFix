@@ -36,6 +36,8 @@ public final class LandsFix extends JavaPlugin implements Initable {
         configuration.init();
         commandController.init();
 
+        configuration.useDefaultColorful();
+
         Bukkit.getPluginManager().registerEvents(new MainHandler(), this);
     }
 

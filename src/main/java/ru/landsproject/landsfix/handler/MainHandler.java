@@ -8,6 +8,7 @@ import com.sk89q.worldedit.regions.CuboidRegion;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -17,6 +18,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPhysicsEvent;
 import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.inventory.*;
+import org.bukkit.inventory.AnvilInventory;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import ru.landsproject.landsfix.LandsFix;
@@ -79,7 +81,7 @@ public class MainHandler implements Listener {
 
         if(inner > LandsFix.getInstance().getConfiguration().getInt("settings.shulker.limit")) {
             e.setCancelled(true);
-            cooldownPickup.put(player.getUniqueId(), true);x
+            cooldownPickup.put(player.getUniqueId(), true);
             player.sendMessage(LandsFix.getInstance().getConfiguration().getString("messages.more-shulkers"));
         }
     }
@@ -111,4 +113,19 @@ public class MainHandler implements Listener {
         }
     }
     //InventoryCloseEvent
+    //PrepareAnvilEvent
+    @EventHandler
+    private void onAnvil(PrepareAnvilEvent e) {
+        Player player = (Player) e.getView().getPlayer();
+        World world = player.getWorld();
+        if(!world.getName().equals(LandsFix.getInstance().getConfiguration().getString("settings.spawnWorld"))) return;
+        AnvilInventory inventory = e.getInventory();
+        if(inventory.getFirstItem() == null || inventory.getFirstItem().getType().isAir()) return;
+        if(inventory.getSecondItem() == null || inventory.getSecondItem().getType().isAir()) return;
+        int cost = inventory.getRepairCost();
+        if(cost == 0 || cost == -1) return;
+        double repairCost = (cost * cost * LandsFix.getInstance().getConfiguration().getDouble("settings.percent") / 100.0) + cost;
+        inventory.setRepairCost((int) repairCost);
+    }
+    //PrepareAnvilEvent
 }

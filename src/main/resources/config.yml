@@ -3,3 +3,5 @@ messages:
 settings:
   shulker:
     limit: 3
+  spawnWorld: world
+  percent: 5
