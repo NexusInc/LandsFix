@@ -115,7 +115,7 @@ public class MainHandler implements Listener {
     //InventoryCloseEvent
     //PrepareAnvilEvent
     @EventHandler
-    private void onAnvil(PrepareAnvilEvent e) {
+    private void onPrepareAnvil(PrepareAnvilEvent e) {
         Player player = (Player) e.getView().getPlayer();
         World world = player.getWorld();
         if(!world.getName().equals(LandsFix.getInstance().getConfiguration().getString("settings.spawnWorld"))) return;
