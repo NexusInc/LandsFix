@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="LandsAPI">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../LandsAPI/build/libs/LandsAPI.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
