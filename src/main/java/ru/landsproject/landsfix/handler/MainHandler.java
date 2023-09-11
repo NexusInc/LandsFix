@@ -103,6 +103,7 @@ public class MainHandler implements Listener {
     @EventHandler
     private void onPlayerClose(InventoryCloseEvent e) {
         Inventory inventory = e.getInventory();
+        if(inventory.getType() != InventoryType.ENDER_CHEST) return;
         Player player = (Player) e.getPlayer();
         for (int i = 0; i < inventory.getSize(); i++) {
             ItemStack rawItem = inventory.getItem(i);
