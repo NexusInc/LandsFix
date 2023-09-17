@@ -123,6 +123,18 @@ public class MainHandler implements Listener {
         }
     }
 
+    //InventoryPickupItemEvent
+    @EventHandler
+    private void onHopper(InventoryPickupItemEvent e) {
+        Inventory inventory = e.getInventory();
+        if (inventory.getType() == InventoryType.HOPPER) {
+            ItemStack itemStack = e.getItem().getItemStack();
+            if (itemStack != null &&
+                    itemStack.getType().name().contains("SHULKER_BOX"))
+                e.setCancelled(true);
+        }
+    }
+    //InventoryPickupItemEvent
     //InventoryClickEvent
     //InventoryCloseEvent
     @EventHandler
